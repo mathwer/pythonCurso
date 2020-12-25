@@ -29,18 +29,17 @@ tela.colormode(255)
 #linhaRasurada(tartaruga, 20)
 
 #----------- Fazer polígonos
-# def poligono(turtle, l):
-#     for i in range(l):
-#         turtle.pencolor(randint(1,255), randint(1,255), randint(1,255))
-#         turtle.forward(100)
-#         turtle.right(360/l)
+l= 3
+tartaruga.penup()
+tartaruga.setpos(-50, 200)
+while True: 
+    tartaruga.pencolor(randint(1,255), randint(1,255), randint(1,255))
+    tartaruga.pendown()
+    for _ in range(l):
+        tartaruga.forward(100)
+        tartaruga.right(360/l)
+    l += 1
 
-# poligono(tartaruga, 3)
-# poligono(tartaruga, 4)
-# poligono(tartaruga, 5)
-# poligono(tartaruga, 6)
-# poligono(tartaruga, 7)
-# poligono(tartaruga, 8)
 
 # ---------- Caminhada aleatória 
 
@@ -55,15 +54,15 @@ tela.colormode(255)
 
 # ---------- Spirografico
 
-def desenho_spirografo(tamanho):
-    for _ in range(int(360/tamanho)):
-        tartaruga.shape('circle')
-        tartaruga.pencolor(randint(1,255), randint(1,255), randint(1,255))
-        tartaruga.speed(0)
-        tartaruga.circle(100)
-        tartaruga.setheading(tartaruga.heading() + tamanho)
+# def desenho_spirografo(tamanho):
+#     for _ in range(int(360/tamanho)):
+#         tartaruga.shape('circle')
+#         tartaruga.pencolor(randint(1,255), randint(1,255), randint(1,255))
+#         tartaruga.speed(0)
+#         tartaruga.circle(100)
+#         tartaruga.setheading(tartaruga.heading() + tamanho)
 
-desenho_spirografo(10)
+# desenho_spirografo(10)
 
 
 tela.exitonclick()

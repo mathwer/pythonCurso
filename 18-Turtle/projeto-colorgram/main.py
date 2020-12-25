@@ -2,7 +2,7 @@ import colorgram #Usado para extrair cores
 import turtle
 from random import choice
 
-cores = colorgram.extract('pythonCurso/18-Turtle/projeto-colorgram/imagem.jpg', 30) #Diretório no meu PC ao usar o workspace no VSCode. Pro pycharm não de ve ser necessário 
+cores = colorgram.extract('pythonCurso/18-Turtle/projeto-colorgram/imagem.jpg', 100) #Diretório no meu PC ao usar o workspace no VSCode. Pro pycharm não de ve ser necessário 
 cores_rgb = []
 
 for cor in cores:
