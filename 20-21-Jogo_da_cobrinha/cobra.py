@@ -1,17 +1,31 @@
 from turtle import Turtle
 
-DISTANCIA_MOVIMENTO = 10    
+DISTANCIA_MOVIMENTO = 10
+POSICAO_INICIAL = ((0, 0), (-20, 0), (-40, 0))
+
+
 class Cobra:
-    cobra = []
+
     def __init__(self):
-        for i in range(3):
-            parte = Turtle(shape="square")
-            parte.color('white')
-            parte.penup()
-            parte.setpos(20*(-i), 0)
-            parte.speed(1)
-            self.cobra.append(parte)
-        
+        self.cobra = []
+        self.criar_Cobra()
+
+    def adicionar_parte(self, posicao):
+        parte = Turtle(shape="square")
+        parte.color('white')
+        parte.penup()
+        parte.shapesize(1, 1, 1)
+        parte.setpos(posicao)
+        parte.speed(1)
+        self.cobra.append(parte)
+
+    def criar_Cobra(self):
+        for posicao in POSICAO_INICIAL:
+            self.adicionar_parte(posicao)
+
+    def crescer(self):
+        self.adicionar_parte(self.cobra[-1].position())
+
     def cima(self):
         if self.cobra[0].heading() != 270:
             self.cobra[0].setheading(90)
@@ -27,7 +41,7 @@ class Cobra:
     def direita(self):
         if self.cobra[0].heading() != 180:
             self.cobra[0].setheading(0)
-    
+
     def mover(self):
         for indice in range(len(self.cobra)-1, 0, -1):
             self.cobra[indice].goto(self.cobra[indice-1].pos())
