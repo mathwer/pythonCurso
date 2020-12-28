@@ -26,8 +26,8 @@ tela.update()
 # Esperar pelos comandos e ativa-los
 tela.listen()
 tela.onkeypress(player1.cima, 'w')
-tela.onkeypress(player2.cima, 'Up')
 tela.onkeypress(player1.baixo, 's')
+tela.onkeypress(player2.cima, 'Up')
 tela.onkeypress(player2.baixo, 'Down')
 
 
