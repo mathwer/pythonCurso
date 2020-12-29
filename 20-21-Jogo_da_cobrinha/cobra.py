@@ -1,4 +1,5 @@
 from turtle import Turtle
+import time
 
 DISTANCIA_MOVIMENTO = 10
 POSICAO_INICIAL = ((0, 0), (-20, 0), (-40, 0))
@@ -22,6 +23,14 @@ class Cobra:
     def criar_Cobra(self):
         for posicao in POSICAO_INICIAL:
             self.adicionar_parte(posicao)
+
+    def reset(self):
+        time.sleep(1)
+        for parte in self.cobra:
+            parte.goto(1000, 1000)
+
+        self.cobra.clear()
+        self.criar_Cobra()
 
     def crescer(self):
         self.adicionar_parte(self.cobra[-1].position())

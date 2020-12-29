@@ -46,18 +46,19 @@ while jogo_on:
         placar.atualizar()
         cobra.crescer()
 
-    elif cobra.cobra[1:].distance(comida) < 15:
-        comida.teleportar()
+    # Comida spawna no corpo da cobra
+    for parte in cobra.cobra[1:]:
+        if parte.distance(comida) < 15:
+            comida.teleportar()
 
     # Bateu com as paredes
     if cobra.cobra[0].xcor() > 280 or cobra.cobra[0].xcor() < -280 or cobra.cobra[0].ycor() > 265 or cobra.cobra[0].ycor() < -280:
-        jogo_on = False
-        placar.gameOver()
+        placar.reset()
+        cobra.reset()
 
     # Colidiu com a cauda
     for parte in cobra.cobra[1:]:
         if cobra.cobra[0].distance(parte) < 7:
-            jogo_on = False
-            placar.gameOver()
+            placar.reset()
 
 tela.exitonclick()

@@ -9,7 +9,7 @@ from threading import Timer  # para dar o delay dos carros
 tela = Screen()
 tela.screensize(600, 600)
 tela.tracer(0)
-
+tela.title('Crossing Tartaruga')
 
 # Instanciando o player, o placar e a lista de carros
 jogador = Jogador()
