@@ -18,7 +18,6 @@ turtle.shape(imagem)
 
 # Configuração dos dados
 
-estados_certos = []
 estados_data = pandas.read_csv('50_states.csv')
 estados_nome = estados_data['state']
 
@@ -41,11 +40,10 @@ class Estado(turtle.Turtle):
 
 
 # Configuração do Jogo
-
+estados_certos = []
 while len(estados_certos) < 50:
     tentativa_estado = tela.textinput(
         title=f'{len(estados_certos)}/50 descobertos: ', prompt='Você se lembra o nome de algum estado?')
-
     for estado in estados_nome:
         if tentativa_estado.lower() == estado.lower():
             linha = estados_data[estados_data['state'] == estado]
@@ -54,13 +52,10 @@ while len(estados_certos) < 50:
                 estados_certos.append(estado)
 
     if tentativa_estado.lower() == 'exit':
+
         # Criar um arquivo com os estados restantes
-
-        estados_restantes = []
-        for estado in estados_nome:
-            if estado not in estados_certos:
-                estados_restantes.append(estado)
-
+        estados_restantes = [
+            estado for estado in estados_nome if estado not in estados_certos]
         estados_restantes = pandas.DataFrame(estados_restantes)
         estados_restantes.to_csv('Estados_para_aprender.csv')
 
