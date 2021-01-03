@@ -9,7 +9,7 @@ FONTE = ('Courier', 14)
 
 
 def transformar():
-    kms = round(int(milhas.get()) * 1.6, 2)
+    kms = round(float(milhas.get()) * 1.609, 2)
     conversao['text'] = kms
 
 
