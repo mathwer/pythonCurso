@@ -139,3 +139,4 @@ cython_debug/
 
 #Senhas 
 *senhas.txt
+*senhas.json
