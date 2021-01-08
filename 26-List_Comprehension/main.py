@@ -11,8 +11,18 @@ dict_nato = {codigo[0]: codigo[1]
 
 print(dict_nato)
 
-palavra = input('Diga uma palavra: ').upper()
 
-lista_nato = [dict_nato[letra] for letra in palavra]
+def para_nato():
+    palavra = input('Diga uma palavra: ').upper()
+    try:
+        lista_nato = [dict_nato[letra] for letra in palavra]
 
-print(lista_nato)
+    except KeyError:
+        print('Desculpe, apenas letras do alfabeto, por favor')
+        para_nato()
+
+    else:
+        print(lista_nato)
+
+
+para_nato()
