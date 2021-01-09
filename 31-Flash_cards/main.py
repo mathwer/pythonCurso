@@ -41,7 +41,7 @@ def proxima_palavra_acerto():
     proxima_palavra_erro()
     data_dict.remove(par)
     palavras_para_aprender = pandas.DataFrame(data_dict)
-    palavras_para_aprender.to_csv('./data/para_aprender.csv')
+    palavras_para_aprender.to_csv('./data/para_aprender.csv', index=False)
 
 # --------------- Tirar as palavras que já sabe -----------------------
 
