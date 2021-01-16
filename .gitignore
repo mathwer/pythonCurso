@@ -140,3 +140,7 @@ cython_debug/
 #Senhas 
 *senhas.txt
 *senhas.json
+*config.py
+
+#Coisas
+32-EmailPy
