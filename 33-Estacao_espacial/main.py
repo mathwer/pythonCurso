@@ -2,6 +2,11 @@ import requests
 from datetime import datetime
 import time
 import smtplib
+from dados import dados
+
+USUARIO = dados["login"]
+SENHA = dados["senha"]
+DESTINO = dados["destino"]
 
 LAT_RIO = -22.906847
 LONG_RIO = -43.172897
@@ -52,10 +57,18 @@ def irss_perto():
 
 
 def enviar_email():
-    pass
+    with smtplib.SMTP('smtp.mail.yahoo.com') as connection:
+        connection.starttls()
+
+        connection.login(user=USUARIO,
+                         password=SENHA)
+        connection.sendmail(from_addr=USUARIO, to_addrs=DESTINO,
+                            msg=f'Subject: IRSS NO AR!\n\nAtenção! A irss está perto! Olhe para fora e você irá vê-la')
 
 
 procurar_irss = True
 while procurar_irss:
-    irss_perto() and noite()
-    time.sleep(60)
+    print('Verificando se a irss está perto')
+    time.sleep(600)
+    if irss_perto() and noite():
+        enviar_email()
