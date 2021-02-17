@@ -142,6 +142,7 @@ cython_debug/
 *senhas.json
 *config.py
 33-Estacao_espacial/dados.py
+*dados.py
 
 #Coisas
 32-EmailPy
