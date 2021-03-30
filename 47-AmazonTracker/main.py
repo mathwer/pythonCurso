@@ -14,14 +14,13 @@ nome = site.find(id="productTitle").get_text().strip()
 preco = site.find(name='span', class_='priceBlockSavingsString')
 # print(preco)
 preco = float(preco.getText().split('$')[1].replace(',', '.'))
-print(preco)
-print(nome)
+# print(preco)
+# print(nome)
 
 
 # Pode usar o pacote smtp para enviar email pra você quando o valor estiver baixo
 if preco <= 330:
     print(f'Preço está {preco}, compre agora!')
-
     # with smtplib.SMTP('o smtp do seu email aqui') as connection:
     #     email_user = 'Seu email aqui'
     #     senha = 'sua senha aqui '
@@ -29,3 +28,6 @@ if preco <= 330:
     #     connection.login(user=email_user, password=senha)
     #     connection.sendmail(from_addr=email_user, to_addr=email_user,
     #                         msg=f'Subject: Preço Baixo! \n\n O preço de {nome} está {preco}! Corre lá!')
+
+else:
+    print(f'O preço está no valor normal: R${preco}')
