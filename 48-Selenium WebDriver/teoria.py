@@ -32,5 +32,19 @@ print(doc_link.text)
 link = driver.find_element_by_xpath('//*[@id="container"]/li[4]/ul/li[13]/a')
 print(link.text)
 
+datas = driver.find_elements_by_css_selector('.event-widget time')
+nomes = driver.find_elements_by_css_selector('.event-widget li a')
+eventos_dic = {}
+
+for n in range(len(nomes)):
+    eventos_dic[n] = {
+        'Data': datas[n].text,
+        'Nome': nomes[n].text
+    }
+
+
+print(eventos_dic)
+
+
 # Fecha o browser por completo
 driver.quit()

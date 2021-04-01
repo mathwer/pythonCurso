@@ -1,0 +1,2 @@
+while True:
+#     cookie.click()
